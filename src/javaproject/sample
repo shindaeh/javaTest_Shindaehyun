@@ -1,0 +1,76 @@
+package javaproject;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Javaproject {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		ArrayList<Daehyun> shop = new ArrayList<>();
+
+		while (true) {
+			System.out.println("\n|=====================Daehyun Shop===========================|");
+			System.out.println("| 1.추천상품 | 2.상품담기 | 3.상품삭제 | 4.리뷰보기 | 5.리뷰입력 | 6. 끝 |");
+			System.out.print("번호를 입력하세요: ");
+			
+			int choice = sc.nextInt();
+			sc.nextLine(); // 버퍼 비우기 (문자 입력 전에 사용)
+
+			if (choice == 1) {
+				System.out.println("👉 추천 상품은 '무선 키보드'입니다!");
+			
+			} else if (choice == 2) {
+				System.out.print("추가할 상품명 입력: ");
+				String name = sc.nextLine();
+				Daehyun item = new Daehyun(name, "", "", 0.0, 0); // 필요한 정보만 넣음
+				shop.add(item);
+				System.out.println(" 상품이 담겼습니다!");
+
+			} else if (choice == 3) {
+				if (shop.isEmpty()) {
+					System.out.println("🛒 장바구니가 비었습니다.");
+				} else {
+					System.out.print("삭제할 상품명 입력: ");
+					String delName = sc.nextLine();
+					boolean found = false;
+					for (int i = 0; i < shop.size(); i++) {
+						if (shop.get(i).recommend.equals(delName)) {
+							shop.remove(i);
+							found = true;
+							System.out.println("❌ 상품 삭제 완료!");
+							break;
+						}
+					}
+					if (!found) {
+						System.out.println("해당 상품이 없습니다.");
+					}
+				}
+				
+			} else if (choice == 4) {
+				System.out.println("⭐ 현재 리뷰 평점: 4.8점 (가상의 값)");
+
+			} else if (choice == 5) {
+				System.out.print("리뷰 점수 입력 (0.0 ~ 5.0): ");
+				double score = sc.nextDouble();
+				System.out.print("리뷰 개수 입력: ");
+				int count = sc.nextInt();
+				sc.nextLine(); // 버퍼 비우기
+				Daehyun review = new Daehyun("", "", "", score, count);
+				shop.add(review);
+				System.out.println("📝 리뷰가 등록되었습니다.");
+			
+			} else if (choice == 6) {
+				System.out.println("👋 프로그램을 종료합니다.");
+				break;
+				
+			} else {
+				System.out.println("⚠️ 1~6 사이의 숫자만 입력하세요!");
+			}
+		}
+
+		sc.close(); // 자원 정리
+	}
+
+}
