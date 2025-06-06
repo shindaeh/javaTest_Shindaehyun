@@ -3,7 +3,7 @@ package javaproject;
 import java.util.Comparator;
 
 public class Shop implements Comparator<Shop> {
-
+	// 1.상품조회 | 2.상품 추가 | 3.상품 삭제 | 4.리뷰보기 | 5.리뷰입력 | 6. 끝
 	private String title; // 상품명
 	private String search; // 추천상품
 	private String plus; // 상품담기
@@ -14,33 +14,22 @@ public class Shop implements Comparator<Shop> {
 	private String exp; // 유통기한
 	private String type; // 타입
 	private double total; // 리뷰 총 점수
-	private double userone; // User 1 점수
-	private double usertwo; // User 2 점수
-	private double userthree; // User 3 점수
-	private double userfour; // User 4 점수
+	private double userone; // userone의 점수
+	private double usertwo; // usertwo의 점수
+	private double userthree; // userthree의 점수
+	private double userfour; // userfour의 점수
 
-	//  기본 생성자
 	public Shop() {
-	}
+	} // 기본 생성자
 
-	//  모든 주요 필드를 초기화하는 생성자
-	public Shop(String title, String maker, String exp, String type) {
-		this.title = title;
-		this.maker = maker;
-		this.exp = exp;
-		this.type = type;
-	}
-
-	//  리뷰 평균 계산 메서드
-	public String totalScore() {
-		double total = getUserone() + getUsertwo() + getUserthree() + getUserfour();
-		double avg = total / 4.0;
+	public String totalScore(double total) {
+		double avg;
+		total = setUserone() + setUsertwo() + setUserthree() + setUserfour();
+		avg = total / 4.0;
 		return String.format("%.2f", avg);
 	}
 
-	//  getter / setter 정리 (이름 및 역할 정확하게)
-
-	public double getUserone() {
+	public double setUserone() {
 		return userone;
 	}
 
@@ -48,7 +37,7 @@ public class Shop implements Comparator<Shop> {
 		this.userone = userone;
 	}
 
-	public double getUsertwo() {
+	public double setUsertwo() {
 		return usertwo;
 	}
 
@@ -56,27 +45,27 @@ public class Shop implements Comparator<Shop> {
 		this.usertwo = usertwo;
 	}
 
-	public double getUserthree() {
-		return userthree;
-	}
-
 	public void setUserthree(double userthree) {
 		this.userthree = userthree;
 	}
 
-	public double getUserfour() {
-		return userfour;
+	public double setUserthree() {
+		return userthree;
 	}
 
 	public void setUserfour(double userfour) {
 		this.userfour = userfour;
 	}
 
+	public double setUserfour() {
+		return userfour;
+	}
+
 	public String getTitle() {
 		return title;
 	}
 
-	public void setTitle(String title) { 
+	public void getTitle(String title) {
 		this.title = title;
 	}
 
@@ -132,5 +121,5 @@ public class Shop implements Comparator<Shop> {
 	public int compare(Shop o1, Shop o2) {
 		return o1.getTitle().compareTo(o2.getTitle());
 	}
-}
 
+}// end class
