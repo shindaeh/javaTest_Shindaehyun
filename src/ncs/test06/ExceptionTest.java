@@ -18,7 +18,7 @@ public class ExceptionTest {
 		// - 입력값은 data 변수에 저장
 		int data = sc.nextInt(); // 사용자 입력 값 저장 (예: 3을 입력하면 data = 3)
 
-		// 🌸 Calculator 객체 생성: 계산 기능(합계 계산)을 사용하기 위해 Calculator 클래스를 호출
+		//  Calculator 객체 생성: 계산 기능(합계 계산)을 사용하기 위해 Calculator 클래스를 호출
 		Calculator calc = new Calculator();
 
 		try {
